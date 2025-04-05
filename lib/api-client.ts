@@ -42,7 +42,6 @@ export async function completeVerification(
   saveMethod?: "phone" | "email" | "cookie" | "apple" | "google",
   identifier?: string,
   validDays?: number,
-  metadata?: Record<string, any>,
 ): Promise<CompleteVerificationResponse> {
   const request: CompleteVerificationRequest = {
     session_id: sessionId,
@@ -50,7 +49,6 @@ export async function completeVerification(
     save_method: saveMethod,
     identifier,
     valid_days: validDays,
-    metadata,
   }
 
   const response = await fetch(`${API_BASE_URL}/complete`, {
@@ -79,5 +77,22 @@ export async function checkVerificationStatus(sessionId: string): Promise<CheckV
   }
 
   return response.json()
+}
+
+// Funkce pro inicializaci verifikace
+export async function initiateVerification(shopId: string): Promise<{ session_id: string }> {
+  const response = await fetch(`/api/shops/by-api-key/route.ts`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.error || "Failed to initiate verification")
+  }
+
+  return { session_id: shopId }
 }
 

@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { createSupabaseClient, createVerificationHash } from "@/lib/supabase"
-import type { CompleteVerificationRequest, CompleteVerificationResponse } from "@/lib/types"
+import type { CompleteVerificationRequest, CompleteVerificationResponse, VerificationStatus } from "@/lib/types"
 
 export const runtime = "edge"
 
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
 
     // Příprava odpovědi
     const response: CompleteVerificationResponse = {
-      status: newStatus as any,
+      status: newStatus as VerificationStatus,
     }
 
     if (body.success) {

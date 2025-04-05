@@ -1,14 +1,14 @@
 // Typy pro API
 
-export type VerificationStatus = 
-  | "initiated" 
-  | "processing" 
-  | "requires_action" 
-  | "success" 
-  | "failed_age" 
-  | "failed_technical" 
-  | "expired" 
-  | "insufficient_credit" 
+export type VerificationStatus =
+  | "initiated"
+  | "processing"
+  | "requires_action"
+  | "success"
+  | "failed_age"
+  | "failed_technical"
+  | "expired"
+  | "insufficient_credit"
   | "pending"
 
 export type VerificationMethod = "bankid" | "mojeid" | "ocr" | "facescan" | "reverification" | "qrcode"
@@ -33,7 +33,7 @@ export interface SelectVerificationMethodResponse {
   status: VerificationStatus
   redirect_url?: string
   qr_data?: string
-  details?: Record<string, any>
+  details?: Record<string, string | number | boolean | null>
 }
 
 export interface CompleteVerificationRequest {
@@ -42,7 +42,7 @@ export interface CompleteVerificationRequest {
   save_method?: "phone" | "email" | "cookie" | "apple" | "google"
   identifier?: string
   valid_days?: number
-  metadata?: Record<string, any>
+  metadata?: Record<string, string | number | boolean | null>
 }
 
 export interface CompleteVerificationResponse {
@@ -60,5 +60,18 @@ export interface CheckVerificationStatusResponse {
   status: VerificationStatus
   method?: VerificationMethod
   completed_at?: string
-  details?: Record<string, any>
+  details?: Record<string, string | number | boolean | null>
 }
+
+export interface ValidateVerificationRequest {
+  verification_hash: string
+  api_key?: string
+}
+
+export interface ValidateVerificationResponse {
+  is_valid: boolean
+  method?: VerificationMethod
+  valid_until?: string
+  metadata?: Record<string, string | number | boolean | null>
+}
+

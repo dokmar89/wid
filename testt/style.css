@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.products, .cart {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.product h3 {
+    margin-top: 0;
+    color: #555;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+#cart-items li {
+    border-bottom: 1px dashed #eee;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+#verification-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#age-verification-widget {
+    margin-top: 15px;
+    /* Widget si sám nastaví výšku a styl */
+}
+
+#checkout-message {
+    font-size: 0.9em;
+    margin-top: 10px;
+}

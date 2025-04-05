@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testovací E-shop</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 1. Vložení PassProve skriptu -->
+    <script src="http://localhost:3000/api/verification-widget.js" defer></script>
+</head>
+<body>
+
+    <h1>Náš Testovací E-shop</h1>
+
+    <div class="products">
+        <h2>Produkty</h2>
+        <div class="product" data-id="prod1" data-name="Běžný Produkt" data-price="250" data-age-restricted="false">
+            <h3>Běžný Produkt</h3>
+            <p>Cena: 250 Kč</p>
+            <button class="add-to-cart-btn">Přidat do košíku</button>
+        </div>
+        <div class="product" data-id="prod2" data-name="Produkt 18+" data-price="500" data-age-restricted="true">
+            <h3>Produkt 18+ (Např. Alkohol)</h3>
+            <p>Cena: 500 Kč</p>
+            <p><strong>Vyžaduje ověření věku!</strong></p>
+            <button class="add-to-cart-btn">Přidat do košíku</button>
+        </div>
+         <div class="product" data-id="prod3" data-name="Další Běžný Produkt" data-price="150" data-age-restricted="false">
+            <h3>Další Běžný Produkt</h3>
+            <p>Cena: 150 Kč</p>
+            <button class="add-to-cart-btn">Přidat do košíku</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>Košík</h2>
+        <ul id="cart-items">
+            <!-- Položky košíku se vloží sem -->
+        </ul>
+        <p>Celková cena: <span id="cart-total">0</span> Kč</p>
+        <p id="verification-status" style="font-weight: bold;">Stav ověření věku: Neověřeno</p>
+
+        <!-- Místo pro widget PassProve -->
+        <div id="age-verification-widget"></div>
+
+        <button id="checkout-button" disabled>Zaplatit</button>
+         <p id="checkout-message" style="color: red; margin-top: 10px;"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

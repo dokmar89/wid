@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     const isValid = savedVerification.is_validated && new Date(savedVerification.expires_at) > new Date()
 
     // Získání metadat z výsledku ověření
-    let metadata: Record<string, any> | undefined
+    let metadata: Record<string, string | number | boolean | null> | undefined
 
     if (isValid) {
       const { data: verificationResult } = await supabase

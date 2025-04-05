@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from "next/server"
 import { createSupabaseClient, isMethodAllowedForShop } from "@/lib/supabase"
 import type { SelectVerificationMethodRequest, SelectVerificationMethodResponse } from "@/lib/types"
 
+type VerificationDetails = Record<string, string | number | boolean | null>
+
 export const runtime = "edge"
 
 export async function POST(request: NextRequest) {
@@ -37,7 +39,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Specifická logika pro jednotlivé metody
-    let verificationDetails: Record<string, any> = {}
+    let verificationDetails: VerificationDetails = {}
     let status: "processing" | "requires_action" = "processing"
 
     switch (body.method) {
@@ -101,15 +103,16 @@ export async function POST(request: NextRequest) {
     // Příprava odpovědi
     const response: SelectVerificationMethodResponse = {
       status: status,
-      details: verificationDetails,
     }
 
     // Přidání specifických polí podle metody
     if (body.method === "bankid" || body.method === "mojeid") {
-      response.redirect_url = verificationDetails.redirect_url
+      response.redirect_url = verificationDetails.redirect_url as string
     } else if (body.method === "qrcode") {
-      response.qr_data = verificationDetails.qr_data
+      response.qr_data = verificationDetails.qr_data as string
     }
+
+    response.details = verificationDetails
 
     return NextResponse.json(response)
   } catch (error) {

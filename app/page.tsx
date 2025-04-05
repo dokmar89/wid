@@ -2,9 +2,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Code, Copy, CheckCircle, ExternalLink, Github, FileCode, Key } from 'lucide-react'
-import Link from "next/link"
-import { useState } from "react"
+import { ExternalLink, Github, FileCode, Key } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -12,10 +11,12 @@ export default function Home() {
       <header className="bg-[#173B3F] text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-WjkAe8ZTI3kS5AbMKIqw66tQ99eoFP.png"
+            <Image
+              src="https://webovka-five.vercel.app/files/Logo_PassProve_bila.svg"
               alt="PassProve Logo"
-              className="h-8"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
             />
             <span className="font-bold text-lg">PassProve</span>
           </div>
