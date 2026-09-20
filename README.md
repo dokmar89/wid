@@ -1,43 +1,43 @@
-# PassProve — hosted verification widget
+# PassProve — hostovaný ověřovací widget
 
-A Next.js prototype exposing verification pages and widget-related API route source.
+Prototyp Next.js s ověřovacími stránkami a zdrojovými kódy API pro widget.
 
-**Status:** Legacy/parallel PassProve implementation retained for reference; not presented as the canonical production release.
+**Stav:** Starší nebo souběžná varianta PassProve uchovaná jako reference; nejde o označení hlavní produkční verze.
 
-## Scope
+## Co projekt obsahuje
 
-- Verification UI with face, OCR, QR and repeated-verification components.
-- API routes for initiating, selecting and checking verification flows.
-- Widget-script route and shop lookup source.
+- Rozhraní pro obličej, OCR, QR a opakované ověření.
+- API pro zahájení, výběr metody a kontrolu průběhu ověřování.
+- Cesta poskytující skript widgetu a zdroj pro vyhledání e-shopu.
 
-## Technology
+## Technologie
 
 Next.js, React, TypeScript, Tailwind CSS, Supabase.
 
-## Architecture and source map
+## Architektura a struktura
 
-- `app/api/` — widget and verification API routes
-- `app/verification/` — hosted verification screen
-- `components/` — verification UI
-- `lib/api-client.ts` — API client
+- `app/api/` — API widgetu a ověřování
+- `app/verification/` — hostovaná ověřovací stránka
+- `components/` — ověřovací rozhraní
+- `lib/api-client.ts` — klient API
 
-## Local development
+## Lokální vývoj
 
-Requires Node.js and npm. From the repository root:
+Potřebujete Node.js a npm. V kořenové složce repozitáře spusťte:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Build command declared by this checkout: `npm run build`.
+Příkaz pro sestavení uvedený v projektu: `npm run build`.
 
-These are the repository scripts, not a claim of a passing build. Dependency installation, build and live integrations were not executed during the documentation review.
+Jde o příkazy deklarované v repozitáři, nikoli o potvrzení úspěšného sestavení. Instalace závislostí, sestavení ani napojení na živé služby nebyly při úpravě dokumentace spuštěny.
 
-## Configuration and limitations
+## Konfigurace a omezení
 
-There are parallel component copies under `app/components/` and `components/`, plus standalone demo files. Validate the active paths and backend policies before reuse. Related scope also exists in `widget_v` and `passprove2`; exact equivalence is not assumed.
+Komponenty mají souběžné kopie v `app/components/` a `components/`; přítomné jsou také samostatné ukázky. Před použitím ověřte aktivní cesty a oprávnění serverové části. Příbuzný rozsah mají `widget_v` a `passprove2`, nejde však o potvrzení úplné shody.
 
-## Documentation next steps
+## Co doplnit do dokumentace
 
-Capture screenshots using synthetic data, document a reproducible test run, and record which integrations have been verified. Keep credentials and deployment-specific configuration outside version control.
+Snímky obrazovky s fiktivními daty, opakovatelný postup ověření a přehled skutečně otestovaných integrací. Přihlašovací údaje a konfigurace konkrétního nasazení patří mimo Git.
